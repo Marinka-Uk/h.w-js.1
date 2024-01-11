@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>H.W</title>
+</head>
+<body>
+
+ <!-- №1 H.W-7-->
+
+  <form>
+    <label for="beverageSelect">Оберіть напій:</label>
+    <select id="beverageSelect" onchange="displayMessage()">
+      <option value="coffee">Кава</option>
+      <option value="tea">Чай</option>
+      <option value="juice">Сік</option>
+    </select>
+  </form>
+
+  <div id="messageBlock"></div>
+
+  <script>
+    function displayMessage() {
+      // Отримуємо вибраний варіант зі списку
+      var selectedBeverage = document.getElementById('beverageSelect').value;
+
+      // Задаємо відповідне повідомлення
+      var message = '';
+      switch (selectedBeverage) {
+        case 'coffee':
+          message = 'Ви обрали каву. Насолоджуйтесь ароматом!';
+          break;
+        case 'tea':
+          message = 'Ви обрали чай. Гарного часу чаювання!';
+          break;
+        case 'juice':
+          message = 'Ви обрали сік. Смачного вам напою!';
+          break;
+        default:
+          message = 'Будь ласка, оберіть напій зі списку.';
+      }
+
+      // Виводимо повідомлення на сторінці
+      document.getElementById('messageBlock').innerText = message;
+    }
+  </script>
+  <br>
+
+ <!-- №2 H.W-7-->
+
+ <label for="dayInput">Введіть день тижня:</label>
+ <input type="text" id="dayInput" placeholder="наприклад, понеділок">
+
+ <button onclick="checkDay()">Перевірити день</button>
+
+ <div id="resultBlock"></div>
+ <script>
+  function checkDay() {
+   
+    var inputDay = document.getElementById('dayInput').value.toLowerCase();
+
+    var workDays = ['понеділок', 'вівторок', 'середа', 'четвер', 'п`ятниця'];
+
+
+    if (workDays.includes(inputDay)) {
+      document.getElementById('resultBlock').innerText = 'Це робочий день.';
+    } else {
+      document.getElementById('resultBlock').innerText = 'Це вихідний день або неправильно введений день тижня.';
+    }
+  }
+</script>
+<br>
+
+ <!-- №3 H.W-7-->
+ <br>
+
+<label for="monthInput">Введіть номер місяця (1-12):</label>
+  <input type="number" id="monthInput" min="1" max="12" placeholder="наприклад, 1">
+
+  <button onclick="checkSeason()">Визначити пору року</button>
+
+  <div id="resultBlock"></div>
+
+  <script>
+    function checkSeason() {
+    
+      var inputMonth = parseInt(document.getElementById('monthInput').value);
+      var season = '';
+      switch (inputMonth) {
+        case 1:
+        case 2:
+        case 12:
+          season = 'Зима';
+          break;
+        case 3:
+        case 4:
+        case 5:
+          season = 'Весна';
+          break;
+        case 6:
+        case 7:
+        case 8:
+          season = 'Літо';
+          break;
+        case 9:
+        case 10:
+        case 11:
+          season = 'Осінь';
+          break;
+        default:
+          season = 'Неправильно введений місяць';
+      }
+
+      document.getElementById('resultBlock').innerText = 'Цей місяць належить до пори року: ' + season;
+    }
+  </script>
+  <br>
+
+ <!-- №4 H.W-7-->
+
+
+
+ <br>
+ <label for="monthInput">Введіть номер місяця (1-12):</label>
+ <input type="number" id="monthInput" min="1" max="12" placeholder="наприклад, 1">
+
+ <button onclick="checkDaysInMonth()">Визначити кількість днів</button>
+
+ <div id="resultBlock"></div>
+
+ <script>
+   function checkDaysInMonth() {
+     var inputMonth = parseInt(document.getElementById('monthInput').value);
+
+
+     var daysInMonth = 0;
+
+     switch (inputMonth) {
+       case 1:
+       case 3:
+       case 5:
+       case 7:
+       case 8:
+       case 10:
+       case 12:
+         daysInMonth = 31;
+         break;
+       case 4:
+       case 6:
+       case 9:
+       case 11:
+         daysInMonth = 30;
+         break;
+       case 2:
+         daysInMonth = 28; // або 29 у високосному році
+         break;
+       default:
+         daysInMonth = 0; // неправильно введений місяць
+     }
+
+     if (daysInMonth > 0) {
+       document.getElementById('resultBlock').innerText = ' У цьому місяці ' + daysInMonth + ' днів.';
+     } else {
+       document.getElementById('resultBlock').innerText = 'Неправильно введений місяць.';
+     }
+   }
+ </script>
+<br>
+
+
+ <!-- №5 H.W-7-->
+
+ <label for="colorInput">Введіть назву кольору:</label>
+ <input type="text" id="colorInput" placeholder="наприклад, червоний">
+
+ <button onclick="checkColor()">Визначити дію</button>
+
+ <div id="resultBlock"></div>
+
+ <script>
+   function checkColor() {
+     var inputColor = document.getElementById('colorInput').value.toLowerCase();
+
+     var action;
+     switch (inputColor) {
+       case 'червоний':
+         action = 'Стоп';
+         break;
+       case 'зелений':
+         action = 'Йти';
+         break;
+       case 'жовтий':
+         action = 'Чекати';
+         break;
+       default:
+         action = 'Невідомий колір. Введіть "червоний", "зелений" або "жовтий".';
+     }
+     document.getElementById('resultBlock').innerText = action;
+   }
+ </script>
+<br>
+
+
+ <!-- №6 H.W-7-->
+ <br>
+ <label for="num1Input">Введіть перше число:</label>
+ <input type="number" id="num1Input">
+
+ <label for="operationSelect">Оберіть операцію:</label>
+ <select id="operationSelect">
+   <option value="+">+</option>
+   <option value="-">-</option>
+   <option value="*">*</option>
+   <option value="/">/</option>
+ </select>
+
+ <label for="num2Input">Введіть друге число:</label>
+ <input type="number" id="num2Input">
+
+ <button onclick="calculate()">Обчислити</button>
+
+ <div id="resultBlock"></div>
+
+ <script>
+   function calculate() {
+     var num1 = parseFloat(document.getElementById('num1Input').value);
+     var num2 = parseFloat(document.getElementById('num2Input').value);
+     var operation = document.getElementById('operationSelect').value;
+     var result;
+
+     switch (operation) {
+       case '+':
+         result = num1 + num2;
+         break;
+       case '-':
+         result = num1 - num2;
+         break;
+       case '*':
+         result = num1 * num2;
+         break;
+       case '/':
+         if (num2 !== 0) {
+           result = num1 / num2;
+         } else {
+           document.getElementById('resultBlock').innerText = 'Помилка: ділення на нуль!';
+           return;
+         }
+         break;
+       default:
+         document.getElementById('resultBlock').innerText = 'Невідома операція';
+         return;
+     }
+
+     document.getElementById('resultBlock').innerText = 'Результат: ' + result;
+   }
+ </script>
+
+</body>
+</html>
